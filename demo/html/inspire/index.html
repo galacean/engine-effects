@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>灵感对比测试 - Galacean Effects Demo</title>
+  <link rel="stylesheet" href="https://gw.alipayobjects.com/as/g/antui/antui/10.1.32/dpl/antui.css"/>
+  <link rel="stylesheet" href="https://gw.alipayobjects.com/as/g/antui/antui/10.1.32/dpl/widget/switch.css">
+  <style>
+    .title {
+      position: absolute;
+      top:0;
+      left: 0;
+      right: 0;
+      color: white;
+      text-align: center;
+    }
+    .cell {
+      position: relative;
+      height: 512px;
+      background-color: rgba(0,0,0,0.8);
+    }
+  </style>
+</head>
+<body>
+<div class="am-flexbox">
+  <div class="am-flexbox-item cell">
+    <div class="title">Pre Effects Player</div>
+    <iframe src="./pre-effects-player.html" id="J-preEffectsPlayerIframe" frameborder="0" width="100%" height="100%" allowtransparency="yes"></iframe>
+  </div>
+  <div class="am-flexbox-item cell">
+    <div class="title">Engine Effects(use effects camera)</div>
+    <iframe src="./engine-use-effects-camera.html" id="J-engineUseEffectsCameraIframe" frameborder="0" width="100%" height="100%" allowtransparency="yes"></iframe>
+  </div>
+  <div class="am-flexbox-item cell">
+    <div class="title">Engine Effects(use galacean engine camera)</div>
+    <iframe src="./engine-effects.html" id="J-engineEffectsIframe" frameborder="0" width="100%" height="100%" allowtransparency="yes"></iframe>
+  </div>
+
+</div>
+<div class="am-whitespace ws15px"></div>
+<div class="am-flexbox am-wingblank wb10px" style="align-items: start">
+  <div>灵感</div>
+  <div class="am-wingblank wb10px">
+    <select id="J-select" size="12" style="min-width: 350px;"></select>
+  </div>
+  <div class="am-flexbox-item">
+    <div class="am-flexbox">
+      <div class="am-flexbox-item">
+        <button type="button" class="am-button" id="J-start">开始</button>
+      </div>
+      <div class="am-flexbox-item">
+        <button type="button" class="am-button white" id="J-pause">暂停</button>
+      </div>
+      <div class="am-checkbox agreement">
+        <input id="loop" type="checkbox">
+        <span class="icon-check" aria-hidden="true"></span>
+        <label for="loop">循环播放</label>
+      </div>
+      <div class="am-flexbox-item">
+        <select id="J-framework">
+          <option value="webgl">WebGL1</option>
+          <option value="webgl2">WebGL2</option>
+        </select>
+      </div>
+    </div>
+  </div>
+ <div class="am-flexbox-item">
+   <p class="gpu-neo"></p>
+   <p class="gpu-old"></p>
+ </div>
+</div>
+<div class="am-whitespace ws25px"></div>
+
+<script type="module" src="../../src/inspire/index.ts"></script>
+</body>
+</html>

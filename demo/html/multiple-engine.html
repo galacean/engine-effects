@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>多 DisplayComponent 的加载及播放 - Galacean Effects Demo</title>
+  <style>
+    html, body, div, canvas { margin: 0; padding: 0; }
+    .canvas1 {
+      width: 512px;
+      height: 1000px;
+    }
+    .canvas2 {
+      width: 512px;
+      height: 1299px;
+    }
+  </style>
+</head>
+<body>
+<div class="container" id="J-container">
+  <canvas class="canvas1" id="J-canvas1"></canvas>
+  <canvas class="canvas2" id="J-canvas2"></canvas>
+</div>
+<script type="module" src="../src/multiple-engine.ts"></script>
+</body>
+</html>

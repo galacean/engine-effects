@@ -1,0 +1,13 @@
+{
+  "name": "Engine Effects API",
+  "entryPoints": [
+    "src/index.ts",
+  ],
+  "out": "api",
+  "includeVersion": true,
+  "excludeExternals": true,
+  "navigationLinks": {
+    "Galacean Effects": "https://galacean.antgroup.com/effects/",
+    "Source code": "https://github.com/galacean/engine-effects"
+  }
+}

@@ -1,0 +1,96 @@
+{
+  "name": "@galacean/engine-effects",
+  "version": "1.0.0",
+  "description": "Galacean Effects runtime of Galacean Engine",
+  "module": "./dist/index.mjs",
+  "main": "./dist/index.js",
+  "brower": "./dist/index.min.js",
+  "types": "./dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
+  "exports": {
+    ".": {
+      "import": "./dist/index.mjs",
+      "require": "./dist/index.js",
+      "types": "./dist/index.d.ts"
+    },
+    "./alipay": {
+      "import": "./dist/alipay-miniprogram.mjs",
+      "require": "./dist/alipay-miniprogram.js",
+      "types": "./dist/index.d.ts"
+    },
+    "./*": {
+      "import": "./dist/*.mjs",
+      "require": "./dist/*.js",
+      "types": "./dist/*.d.ts"
+    }
+  },
+  "scripts": {
+    "dev": "vite",
+    "preview": "concurrently \"vite build\" \"sleep 6 && vite preview\"",
+    "prebuild": "pnpm clean",
+    "build": "pnpm build:declaration && pnpm build:module",
+    "build:module": "rollup -c",
+    "build:declaration": "tsc -d --emitDeclarationOnly",
+    "build:docs": "pnpm build && typedoc",
+    "lint": "eslint --ext .ts .",
+    "lint:fix": "eslint --fix --ext .ts .",
+    "check:ts": "tsc -b ./tsconfig.check.json",
+    "clean": "rimraf dist",
+    "prepare": "husky install",
+    "prepublishOnly": "pnpm build"
+  },
+  "browserslist": [
+    "iOS 9"
+  ],
+  "dependencies": {
+    "@galacean/effects-core": "2.0.3",
+    "@galacean/effects-plugin-spine": "2.0.3"
+  },
+  "peerDependencies": {
+    "@galacean/engine": "1.3.8"
+  },
+  "devDependencies": {
+    "@commitlint/cli": "^19.3.0",
+    "@commitlint/config-conventional": "^19.2.2",
+    "@galacean/engine-toolkit-controls": "1.3.0",
+    "@rollup/plugin-commonjs": "^21.1.0",
+    "@rollup/plugin-inject": "^5.0.5",
+    "@rollup/plugin-node-resolve": "^13.3.0",
+    "@swc/core": "^1.4.13",
+    "@swc/helpers": "^0.5.8",
+    "@typescript-eslint/eslint-plugin": "^7.10.0",
+    "@typescript-eslint/parser": "^7.10.0",
+    "@vitejs/plugin-legacy": "^4.1.1",
+    "concurrently": "^8.2.2",
+    "eslint": "^8.57.0",
+    "eslint-plugin-compat": "^4.2.0",
+    "eslint-plugin-promise": "^6.1.1",
+    "husky": "^7.0.4",
+    "lint-staged": "^11.2.6",
+    "pnpm": "^8.15.8",
+    "rimraf": "4",
+    "rollup": "^2.79.1",
+    "rollup-plugin-swc3": "^0.11.0",
+    "tslib": "^2.6.2",
+    "typedoc": "^0.25.12",
+    "typescript": "^5.4.5",
+    "vite": "^4.5.3",
+    "vite-tsconfig-paths": "^4.3.2"
+  },
+  "contributors": [
+    {
+      "name": "云垣"
+    },
+    {
+      "name": "桐伦"
+    }
+  ],
+  "author": "Ant Group CO., Ltd.",
+  "license": "MIT",
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org"
+  }
+}

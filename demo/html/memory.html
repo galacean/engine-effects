@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>内存泄漏测试 - Galacean Effects Demo</title>
+  <style>
+    html, body, div, canvas { margin: 0; padding: 0; }
+    .container canvas {
+      width: 512px;
+      height: 512px;
+    }
+  </style>
+</head>
+<body>
+<h5>测试 Effects 动画是否存在内存泄漏情况</h1>
+<div class="container" id="J-container"></div>
+<script type="module" src="../src/memory.ts"></script>
+</body>
+</html>
