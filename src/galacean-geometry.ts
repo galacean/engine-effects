@@ -76,7 +76,6 @@ export class GalaceanGeometry extends Geometry {
     const geometry = new ENGINE.BufferMesh(this.originalEngine);
 
     engine.geometryArray.add(geometry);
-
     Object.keys(props.attributes).forEach(name => {
       const attr = props.attributes[name];
 
@@ -389,7 +388,14 @@ export class GalaceanGeometry extends Geometry {
     if (!data) {
       return;
     }
-    if (name === 'aSprite') {
+    // 特殊处理 aTranslation
+    if (name === 'aTranslation' || name === 'aLinearMove') {
+      stride = 12; // 确保 stride 为 12（3个float * 4字节）
+      // 确保数据长度足够
+      if (maxCount && (!data.length || data.length < maxCount * stride)) {
+        data = new Float32Array(maxCount * stride);
+      }
+    } else if (name === 'aSprite') {
       stride = 12;
     } else {
       stride = stride ?? 0;

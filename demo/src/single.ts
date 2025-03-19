@@ -32,8 +32,9 @@ const json = 'https://mdn.alipayobjects.com/mars/afts/file/A*8YbDTazMc4IAAAAAAAA
 
     // @ts-expect-error
     displayComponent.initialize(engine._hardwareRenderer.gl);
-    const composition = await displayComponent.loadScene('https://mdn.alipayobjects.com/mars/afts/file/A*8YbDTazMc4IAAAAAAAAAAAAAelB4AQ', { autoplay: false });
+    const composition = await displayComponent.loadScene('https://mdn.alipayobjects.com/mars/afts/file/A*nOKiS6Qq5qoAAAAAAAAAAAAADlB4AQ', { autoplay: false });
 
+    composition.setRotation(0, 0, 90);
     composition.on('end', ({ composition }) => {
       console.info(`${composition.name} end.`);
     });
