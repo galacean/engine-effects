@@ -1,11 +1,10 @@
 import * as ENGINE from '@galacean/engine';
 import type {
-  JSONValue, Scene, SceneLoadOptions, TouchEventType, EffectsObject, MessageItem,
-  Renderer, SceneType, Composition, SceneLoadType, EventEmitterListener, Region,
-} from '@galacean/effects-core';
+  JSONValue, SceneLoadOptions, TouchEventType, EffectsObject, MessageItem,
+  Renderer, Composition, EventEmitterListener, Region } from '@galacean/effects-core';
 import {
-  EVENT_TYPE_CLICK, EventSystem, spec, AssetManager, Ticker, isArray, gpuTimer, isSceneURL,
-  isSceneWithOptions, Texture, logger,
+  EVENT_TYPE_CLICK, EventSystem, spec, AssetManager, Ticker, isArray, gpuTimer,
+  Texture, logger, Scene,
 } from '@galacean/effects-core';
 import { GalaceanComposition } from './galacean-composition';
 import { GalaceanRenderer } from './galacean-renderer';
@@ -409,9 +408,9 @@ export class GalaceanDisplayComponent extends ENGINE.Script {
    * @param options - 加载可选参数
    * @returns
    */
-  async loadScene (scene: SceneLoadType, options?: GalaceanSceneLoadOptions): Promise<GalaceanComposition>;
-  async loadScene (scene: SceneLoadType[], options?: GalaceanSceneLoadOptions): Promise<GalaceanComposition[]>;
-  async loadScene (scene: SceneLoadType | SceneLoadType[], options?: GalaceanSceneLoadOptions): Promise<GalaceanComposition | GalaceanComposition[]> {
+  async loadScene (scene: Scene.LoadType, options?: GalaceanSceneLoadOptions): Promise<GalaceanComposition>;
+  async loadScene (scene: Scene.LoadType[], options?: GalaceanSceneLoadOptions): Promise<GalaceanComposition[]>;
+  async loadScene (scene: Scene.LoadType | Scene.LoadType[], options?: GalaceanSceneLoadOptions): Promise<GalaceanComposition | GalaceanComposition[]> {
     let composition: GalaceanComposition | GalaceanComposition[];
     const baseOrder = this.baseCompositionIndex;
 
@@ -438,7 +437,7 @@ export class GalaceanDisplayComponent extends ENGINE.Script {
   }
 
   private async createComposition (
-    url: SceneLoadType,
+    url: Scene.LoadType,
     options: GalaceanSceneLoadOptions = {},
   ): Promise<GalaceanComposition> {
     const engine = new GalaceanEngine(
@@ -459,13 +458,13 @@ export class GalaceanDisplayComponent extends ENGINE.Script {
       autoplay: true,
       ...options,
     };
-    let source: SceneType;
+    let source: Scene.LoadType;
 
     engine.renderer = renderer;
 
-    if (isSceneURL(url)) {
+    if (Scene.isURL(url)) {
       source = url.url;
-      if (isSceneWithOptions(url)) {
+      if (Scene.isWithOptions(url)) {
         opts = {
           ...opts,
           ...url.options,
@@ -605,7 +604,7 @@ export class GalaceanDisplayComponent extends ENGINE.Script {
     options: GalaceanSceneLoadOptions = {},
   ): Promise<Scene> {
     const assetManager = new AssetManager(options);
-    const scene = await assetManager.loadScene(url as SceneType);
+    const scene = await assetManager.loadScene(url as Scene.LoadType);
 
     return scene;
   }

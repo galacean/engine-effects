@@ -1,11 +1,10 @@
 import type * as ENGINE from '@galacean/engine';
 import type * as EFFECTS from '@galacean/effects-core';
 import type { Scene, MeshRendererOptions, CompositionProps } from '@galacean/effects-core';
-import { Composition } from '@galacean/effects-core';
+import { Composition, CompositionComponent, RendererComponent } from '@galacean/effects-core';
 import type { GalaceanRenderer } from './galacean-renderer';
 import { GalaceanTexture } from './galacean-texture';
 import type { GalaceanEngine } from './galacean-engine';
-import { GalaceanRenderFrame } from './galacean-render-frame';
 
 export interface GalaceanCompositionProps extends CompositionProps {
   /**
@@ -89,13 +88,13 @@ export class GalaceanComposition extends Composition {
   /**
    * 开始
    */
-  override createRenderFrame () {
-    this.renderFrame = new GalaceanRenderFrame({
-      camera: this.camera,
-      keepColorBuffer: this.keepColorBuffer,
-      renderer: this.renderer,
-    });
-  }
+  // override createRenderFrame () {
+  //   this.renderFrame = new GalaceanRenderFrame({
+  //     camera: this.camera,
+  //     keepColorBuffer: this.keepColorBuffer,
+  //     renderer: this.renderer,
+  //   });
+  // }
 
   /**
    * 获取 render 参数
@@ -122,17 +121,34 @@ export class GalaceanComposition extends Composition {
     return this.rendererOptions;
   }
 
-  override prepareRender () {
+  override prepareRender (): void {
+    const render = this.renderer;
     const frame = this.renderFrame;
 
     frame._renderPasses[0].meshes.length = 0;
-    this.postLoaders.length = 0;
-    this.pluginSystem.plugins.forEach(loader => {
-      if (loader.prepareRenderFrame(this, frame)) {
-        this.postLoaders.push(loader);
+
+    // 主合成元素
+    for (const vfxItem of this.rootComposition.items) {
+      const rendererComponents = vfxItem.getComponents(RendererComponent);
+
+      for (const rendererComponent of rendererComponents) {
+        if (rendererComponent.isActiveAndEnabled) {
+          rendererComponent.render(render);
+        }
       }
-    });
-    this.gatherRendererComponent(this.rootItem, frame);
-    this.postLoaders.forEach(loader => loader.postProcessFrame(this, frame));
+    }
+    // 预合成元素
+    for (const refContent of this.refContent) {
+      for (const vfxItem of refContent.getComponent(CompositionComponent).items) {
+        const rendererComponents = vfxItem.getComponents(RendererComponent);
+
+        for (const rendererComponent of rendererComponents) {
+          if (rendererComponent.isActiveAndEnabled) {
+            rendererComponent.render(render);
+          }
+        }
+      }
+    }
   }
+
 }

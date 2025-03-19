@@ -17,6 +17,8 @@ export class GalaceanTexture extends Texture {
 
   video: HTMLVideoElement;
 
+  override source: TextureSourceOptions = {};
+
   /**
    * 将 WebGL 纹理过滤器枚举类型映射到 Galacean 纹理过滤器枚举类型
    * @param filter - WebGL 纹理过滤器枚举类型

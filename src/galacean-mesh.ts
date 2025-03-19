@@ -53,7 +53,7 @@ export class GalaceanMesh extends Mesh implements Sortable {
   override render (renderer: Renderer): void {
     // 兼容 spine 逻辑
     if (!this.started) {
-      this.start();
+      this.onStart();
     }
     if (this.isDestroyed || !this.getVisible()) {
       return;
@@ -148,8 +148,8 @@ export class GalaceanMesh extends Mesh implements Sortable {
     this.galaceanMesh.setMaterial((material as GalaceanMaterial).galaceanMaterial);
   }
 
-  override start (): void {
-    super.start();
+  override onStart (): void {
+    super.onStart();
     // spine error
     this.started = true;
     (this.engine as GalaceanEngine).addEntity(this.galaceanMesh.entity);

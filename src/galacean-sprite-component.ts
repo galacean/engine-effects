@@ -41,8 +41,8 @@ export class GalaceanSpriteComponent extends SpriteComponent {
     return this.galaceanMesh.enabled;
   }
 
-  override start (): void {
-    super.start();
+  override onStart (): void {
+    super.onStart();
     if (this.galaceanMesh) {
       (this.engine as GalaceanEngine).addEntity(this.galaceanMesh.entity);
       this.galaceanMesh.priority = this.priority / (this.engine as GalaceanEngine).maxPriority + (this.engine as GalaceanEngine).priority;
