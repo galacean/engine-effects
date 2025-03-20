@@ -10,7 +10,7 @@ const canvas = document.createElement('canvas');
 // 爱心
 // const json = 'https://mdn.alipayobjects.com/mars/afts/file/A*02UWQ6BvLuAAAAAAAAAAAAAADlB4AQ';
 // 场景推进
-const json = 'https://mdn.alipayobjects.com/mars/afts/file/A*8YbDTazMc4IAAAAAAAAAAAAAelB4AQ';
+const json = 'https://mdn.alipayobjects.com/mars/afts/file/A*MVjVR79EnZgAAAAAAAAAAAAADlB4AQ';
 // const json = 'https://mdn.alipayobjects.com/mars/afts/file/A*8m6aSa2wW5IAAAAAAAAAAAAADlB4AQ';
 
 (async () => {
@@ -32,9 +32,8 @@ const json = 'https://mdn.alipayobjects.com/mars/afts/file/A*8YbDTazMc4IAAAAAAAA
 
     // @ts-expect-error
     displayComponent.initialize(engine._hardwareRenderer.gl);
-    const composition = await displayComponent.loadScene('https://mdn.alipayobjects.com/mars/afts/file/A*nOKiS6Qq5qoAAAAAAAAAAAAADlB4AQ', { autoplay: false });
+    const composition = await displayComponent.loadScene(json, { autoplay: false });
 
-    composition.setRotation(0, 0, 90);
     composition.on('end', ({ composition }) => {
       console.info(`${composition.name} end.`);
     });
