@@ -37,6 +37,20 @@ export class GalaceanSpriteComponent extends SpriteComponent {
       this.galaceanMesh.enabled = visible;
     }
   }
+
+  override onEnable (): void {
+    super.onEnable();
+    if (this.galaceanMesh) {
+      this.galaceanMesh.enabled = true;
+    }
+  }
+
+  override onDisable (): void {
+    super.onDisable();
+    if (this.galaceanMesh) {
+      this.galaceanMesh.enabled = false;
+    }
+  }
   override getVisible (): boolean {
     return this.galaceanMesh.enabled;
   }
@@ -46,15 +60,6 @@ export class GalaceanSpriteComponent extends SpriteComponent {
     if (this.galaceanMesh) {
       (this.engine as GalaceanEngine).addEntity(this.galaceanMesh.entity);
       this.galaceanMesh.priority = this.priority / (this.engine as GalaceanEngine).maxPriority + (this.engine as GalaceanEngine).priority;
-    }
-  }
-
-  override get enabled (): boolean {
-    return this.galaceanMesh.enabled;
-  }
-  override set enabled (value: boolean) {
-    if (this.galaceanMesh) {
-      this.galaceanMesh.enabled = value;
     }
   }
 
