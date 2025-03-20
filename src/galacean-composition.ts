@@ -86,17 +86,6 @@ export class GalaceanComposition extends Composition {
   }
 
   /**
-   * 开始
-   */
-  // override createRenderFrame () {
-  //   this.renderFrame = new GalaceanRenderFrame({
-  //     camera: this.camera,
-  //     keepColorBuffer: this.keepColorBuffer,
-  //     renderer: this.renderer,
-  //   });
-  // }
-
-  /**
    * 获取 render 参数
    *
    * @returns
