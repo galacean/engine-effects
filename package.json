@@ -1,6 +1,6 @@
 {
   "name": "@galacean/engine-effects",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "Galacean Effects runtime of Galacean Engine",
   "module": "./dist/index.mjs",
   "main": "./dist/index.js",
