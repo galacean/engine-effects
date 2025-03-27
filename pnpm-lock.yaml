@@ -6,14 +6,14 @@ settings:
 
 dependencies:
   '@galacean/effects-core':
-    specifier: 2.0.3
-    version: 2.0.3
+    specifier: 2.2.7
+    version: 2.2.7
   '@galacean/effects-plugin-spine':
-    specifier: 2.0.3
-    version: 2.0.3
+    specifier: 2.2.7
+    version: 2.2.7
   '@galacean/engine':
-    specifier: 1.3.8
-    version: 1.3.8
+    specifier: 1.4.12
+    version: 1.4.12
 
 devDependencies:
   '@commitlint/cli':
@@ -24,7 +24,7 @@ devDependencies:
     version: 19.2.2
   '@galacean/engine-toolkit-controls':
     specifier: 1.3.0
-    version: 1.3.0(@galacean/engine@1.3.8)
+    version: 1.3.0(@galacean/engine@1.4.12)
   '@rollup/plugin-commonjs':
     specifier: ^21.1.0
     version: 21.1.0(rollup@2.79.1)
@@ -1747,12 +1747,13 @@ packages:
     resolution: {integrity: sha512-J8TOSBq3SoZbDhM9+R/u77hP93gz/rajSA+K2kGyijPpORPWUXHUpTaleoj+92As0S9uPRP7Oi8IqMf0u+ro6A==}
     dev: true
 
-  /@galacean/effects-core@2.0.3:
-    resolution: {integrity: sha512-+mjmQlxTKV0gdVbxZmnI2nHxT8WY51X9K7KVLnJ5uemrN1QOnu/R60W77YvxJ3/lINeq7CD/riro9m27dnWRAg==}
+  /@galacean/effects-core@2.2.7:
+    resolution: {integrity: sha512-MgoHaKEThTXgHILnNXfhACc9PrQYzUleVaDGPHm7pYgEJEIOJomu2C3zhqXFRaCoN7ZMlmt32D5JkXfezZwIIA==}
     dependencies:
       '@galacean/effects-math': 1.1.0
-      '@galacean/effects-specification': 2.0.0
+      '@galacean/effects-specification': 2.1.0
       flatbuffers: 24.3.25
+      libtess: 1.2.2
       uuid: 9.0.1
     dev: false
 
@@ -1761,52 +1762,52 @@ packages:
     engines: {node: '>=10.0.0'}
     dev: false
 
-  /@galacean/effects-plugin-spine@2.0.3:
-    resolution: {integrity: sha512-dJJ0vRo+eRnStTzEBElIDCTgh5iWXaOWq5/lzk9DKIMvKCkOltMvr6SH0WHtRjYuYxJKbB+aZUzW9GveeUoWSQ==}
+  /@galacean/effects-plugin-spine@2.2.7:
+    resolution: {integrity: sha512-JySqhdqYibpBxR2wPbD5pERS5Th+l+rJkTnuVU5LGFWRMWTeQkKozgBORqHnHvYbFwmK251VIhO4zXV4bosZug==}
     dependencies:
       '@esotericsoftware/spine-core': 4.2.47
     dev: false
 
-  /@galacean/effects-specification@2.0.0:
-    resolution: {integrity: sha512-7ieZALZYn5fwKLIGAskmYSKGX82ZkLRdDUInG21KsOJ2eQ5+HcI6mJU5tmN8vjZxQUc+RVuUcssExGbiaj2+5w==}
+  /@galacean/effects-specification@2.1.0:
+    resolution: {integrity: sha512-gad/CBHvTlL182QExrPGqzafzfMjSEfVWRA4+mufHMvxlsDF0kEIvZ2EEcyG9IgvRkX81F1PU1vk+or6G1j2nw==}
     dev: false
 
-  /@galacean/engine-core@1.3.8:
-    resolution: {integrity: sha512-VJorRHLrE+GRc8fWj3CeuaoyGP6TnVe9tCKZjdSiEfk1cOdYQdYFaQiw6Is/HY/1OPFIJzeJJA0qXYo3+dctYA==}
+  /@galacean/engine-core@1.4.12:
+    resolution: {integrity: sha512-fKR1jX4U4S5PPfZzw2gHYa9gHSpki7fP7D3U8SfA3jNNpRP2Y9NN6tPDsllOPrkvsGLdS/snonUiTSP6Z+Ga0Q==}
     dependencies:
-      '@galacean/engine-math': 1.3.8
+      '@galacean/engine-math': 1.4.12
 
-  /@galacean/engine-loader@1.3.8:
-    resolution: {integrity: sha512-JZnZ7x0N26L9sUFTJVfnW7DJdjNlPzWAb1CKmBGQ0LYr7qxz+/WyHsz3qW9EqbLlMBlDmC1F4bzOh9+gHroy4g==}
+  /@galacean/engine-loader@1.4.12:
+    resolution: {integrity: sha512-FL0r/3f3s6s/1i4sasH0tln6EsdiZcfkbZpCmLIkWZbApTUxGJ+piV2l+uY9OLyQ/HlsDqCLIaZlYCvREmUhww==}
     dependencies:
-      '@galacean/engine-core': 1.3.8
-      '@galacean/engine-math': 1.3.8
-      '@galacean/engine-rhi-webgl': 1.3.8
+      '@galacean/engine-core': 1.4.12
+      '@galacean/engine-math': 1.4.12
+      '@galacean/engine-rhi-webgl': 1.4.12
 
-  /@galacean/engine-math@1.3.8:
-    resolution: {integrity: sha512-dsm1YySE+tBVC5PSc1Tw3jGoCR6rCg303ftzO3w5122ieXg54v8SnMBwNVnqcVNxzYY6/68le1So85DtQf+lKA==}
+  /@galacean/engine-math@1.4.12:
+    resolution: {integrity: sha512-C1cKLOi/5WdnWl25U7TC0/emSMUF0lssmsR8Si3TlPlaogM8K6gljf4bG9O/zJSccfy1d2zM/ZNeRkes/0K3qw==}
 
-  /@galacean/engine-rhi-webgl@1.3.8:
-    resolution: {integrity: sha512-hwea+pFvGlG73uX34qWdHz+xzQLmwJyYMVhgNZq5hJmqZQ6SIw4SHKIT3RyRStbuz8BAiJe44/YezBDxsnwNEA==}
+  /@galacean/engine-rhi-webgl@1.4.12:
+    resolution: {integrity: sha512-Mkx0946ShQ+LAFM9bUYp9r2BNqdegf+cKDUBP9W/xLHHkf89S/jNeV3pVbgPef8nVAT8ownnZ4Qe0TwRG05LZA==}
     dependencies:
-      '@galacean/engine-core': 1.3.8
-      '@galacean/engine-math': 1.3.8
+      '@galacean/engine-core': 1.4.12
+      '@galacean/engine-math': 1.4.12
 
-  /@galacean/engine-toolkit-controls@1.3.0(@galacean/engine@1.3.8):
+  /@galacean/engine-toolkit-controls@1.3.0(@galacean/engine@1.4.12):
     resolution: {integrity: sha512-J++0Hntw+isnYuVR5T+mlXJ10SX2v3MjizB6Pu27UaqcEzf3Hup9Zmx/rerakX8OZfgwbzCuc2Kqe3c+4v3ukw==}
     peerDependencies:
       '@galacean/engine': ^1.3.0-beta.6
     dependencies:
-      '@galacean/engine': 1.3.8
+      '@galacean/engine': 1.4.12
     dev: true
 
-  /@galacean/engine@1.3.8:
-    resolution: {integrity: sha512-2qMkPN+QpEv1cF2vNNpvxsCJaQrVZ49QWnznRb9GHO0KAcCreIGVm/yPduNKS78aleOz2gpfketTKxL993h1zw==}
+  /@galacean/engine@1.4.12:
+    resolution: {integrity: sha512-2t8PyDeVWGR8MLynlC/MmjaMX95xWDrFZdV2sTDjpxuNYyR6nrbsKiMivAlHtm9e1mb1GWR1zOO4TgzQWJgxPQ==}
     dependencies:
-      '@galacean/engine-core': 1.3.8
-      '@galacean/engine-loader': 1.3.8
-      '@galacean/engine-math': 1.3.8
-      '@galacean/engine-rhi-webgl': 1.3.8
+      '@galacean/engine-core': 1.4.12
+      '@galacean/engine-loader': 1.4.12
+      '@galacean/engine-math': 1.4.12
+      '@galacean/engine-rhi-webgl': 1.4.12
 
   /@humanwhocodes/config-array@0.11.14:
     resolution: {integrity: sha512-3T8LkOmg45BV5FICb15QQMsyUSWrQ8AygVfC7ZG32zOalnqrilm018ZVCw0eapXux8FtA33q8PSRSstjee3jSg==}
@@ -3417,6 +3418,10 @@ packages:
       prelude-ls: 1.2.1
       type-check: 0.4.0
     dev: true
+
+  /libtess@1.2.2:
+    resolution: {integrity: sha512-Nps8HPeVVcsmJxUvFLKVJcCgcz+1ajPTXDVAVPs6+giOQP4AHV31uZFFkh+CKow/bkB7GbZWKmwmit7myaqDSw==}
+    dev: false
 
   /lines-and-columns@1.2.4:
     resolution: {integrity: sha512-7ylylesZQ/PV29jhEDl3Ufjo6ZX7gCqJr5F7PKrqc93v7fzSymt1BpwEU8nAUXs8qzzvqhbjhK5QZg6Mt/HkBg==}

@@ -50,10 +50,20 @@ export class GalaceanMesh extends Mesh implements Sortable {
     this.priority = priority;
   }
 
+  override onEnable (): void {
+    super.onEnable();
+    this.galaceanMesh.enabled = true;
+  }
+
+  override onDisable (): void {
+    super.onDisable();
+    this.galaceanMesh.enabled = false;
+  }
+
   override render (renderer: Renderer): void {
     // 兼容 spine 逻辑
     if (!this.started) {
-      this.start();
+      this.onStart();
     }
     if (this.isDestroyed || !this.getVisible()) {
       return;
@@ -78,13 +88,6 @@ export class GalaceanMesh extends Mesh implements Sortable {
     }
 
     const tempWorld = math.Matrix4.fromArray(this.worldMatrix.elements);
-
-    const effectsObjectToWorld = this.material.getMatrix('effects_ObjectToWorld');
-
-    // 兼容 spine
-    if (this.name.includes('Spine') && effectsObjectToWorld) {
-      tempWorld.multiply(effectsObjectToWorld);
-    }
     const originalM = new math.Matrix4().setFromArray(this.galaceanMesh.entity.transform.worldMatrix.elements);
 
     this.material.setMatrix('effects_ObjectToWorld', originalM.multiply(tempWorld));
@@ -148,8 +151,8 @@ export class GalaceanMesh extends Mesh implements Sortable {
     this.galaceanMesh.setMaterial((material as GalaceanMaterial).galaceanMaterial);
   }
 
-  override start (): void {
-    super.start();
+  override onStart (): void {
+    super.onStart();
     // spine error
     this.started = true;
     (this.engine as GalaceanEngine).addEntity(this.galaceanMesh.entity);

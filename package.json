@@ -1,6 +1,6 @@
 {
   "name": "@galacean/engine-effects",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "Galacean Effects runtime of Galacean Engine",
   "module": "./dist/index.mjs",
   "main": "./dist/index.js",
@@ -45,11 +45,11 @@
     "iOS 9"
   ],
   "dependencies": {
-    "@galacean/effects-core": "2.0.3",
-    "@galacean/effects-plugin-spine": "2.0.3"
+    "@galacean/effects-core": "2.2.7",
+    "@galacean/effects-plugin-spine": "2.2.7"
   },
   "peerDependencies": {
-    "@galacean/engine": "1.3.8"
+    "@galacean/engine": "1.4.12"
   },
   "devDependencies": {
     "@commitlint/cli": "^19.3.0",
